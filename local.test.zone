@@ -1,0 +1,15 @@
+; base zone file for local.test
+$TTL 2d    ; default TTL for zone
+$ORIGIN local.test. ; base domain-name
+@         IN      SOA   ns1.local.test. hostmaster.local.test. (
+                                2022080900 ; serial number
+                                1h         ; refresh
+                                15m        ; update retry
+                                5m         ; expiry
+                                1m         ; minimum
+                                )
+          IN      NS      ns1.local.test.
+
+ns1         IN    A       192.168.2.2
+local.test. IN    A       192.168.2.2
+*           IN    CNAME   ns1.local.test.
